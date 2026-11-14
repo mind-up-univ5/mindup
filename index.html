@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mind'up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <svg class="plateau" viewBox="0 0 800 800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Camembert complet : 6 parts de couleur -->
+    <g id="plein">
+      <path d="M0 0 L0 -22 A22 22 0 0 1 19 -11 Z" fill="#6b7b3f"/>
+      <path d="M0 0 L19 -11 A22 22 0 0 1 19 11 Z" fill="#7fa39a"/>
+      <path d="M0 0 L19 11 A22 22 0 0 1 0 22 Z" fill="#8fa6b8"/>
+      <path d="M0 0 L0 22 A22 22 0 0 1 -19 11 Z" fill="#c9b27c"/>
+      <path d="M0 0 L-19 11 A22 22 0 0 1 -19 -11 Z" fill="#c49a9a"/>
+      <path d="M0 0 L-19 -11 A22 22 0 0 1 0 -22 Z" fill="#9a8fb0"/>
+    </g>
+    <!-- Pion : camembert avec une part manquante -->
+    <g id="pion">
+      <use href="#plein"/>
+      <path d="M0 0 L0 22 A22 22 0 0 1 -19 11 Z" fill="#f6f8f1"/>
+      <circle r="22" fill="none" stroke="#4a5a2b" stroke-width="2"/>
+      <circle r="5" fill="#f6f8f1" stroke="#4a5a2b" stroke-width="1.5"/>
+    </g>
+  </defs>
+
+  <!-- Anneau extérieur : cases neutres -->
+  <circle cx="400" cy="400" r="340" fill="none" stroke="#a9b88f" stroke-width="30"
+          pathLength="42" stroke-dasharray="0.9 0.1" transform="rotate(-93.857 400 400)"/>
+
+  <!-- Cases de couleur sur l'anneau -->
+  <g fill="none" stroke-width="30" pathLength="42" transform="rotate(-93.857 400 400)">
+    <circle cx="400" cy="400" r="340" pathLength="42" stroke="#6b7b3f" stroke-width="30" stroke-dasharray="0.9 41.1" stroke-dashoffset="-3"/>
+    <circle cx="400" cy="400" r="340" pathLength="42" stroke="#7fa39a" stroke-width="30" stroke-dasharray="0.9 41.1" stroke-dashoffset="-10"/>
+    <circle cx="400" cy="400" r="340" pathLength="42" stroke="#8fa6b8" stroke-width="30" stroke-dasharray="0.9 41.1" stroke-dashoffset="-17"/>
+    <circle cx="400" cy="400" r="340" pathLength="42" stroke="#c9b27c" stroke-width="30" stroke-dasharray="0.9 41.1" stroke-dashoffset="-24"/>
+    <circle cx="400" cy="400" r="340" pathLength="42" stroke="#c49a9a" stroke-width="30" stroke-dasharray="0.9 41.1" stroke-dashoffset="-31"/>
+    <circle cx="400" cy="400" r="340" pathLength="42" stroke="#9a8fb0" stroke-width="30" stroke-dasharray="0.9 41.1" stroke-dashoffset="-38"/>
+  </g>
+
+  <!-- Fins contours de l'anneau -->
+  <circle cx="400" cy="400" r="325" fill="none" stroke="#6b7b3f" stroke-width="1.5"/>
+  <circle cx="400" cy="400" r="355" fill="none" stroke="#6b7b3f" stroke-width="1.5"/>
+
+  <!-- Les 6 rayons, chacun avec son quartier de couleur au bout -->
+  <g>
+    <g transform="rotate(0 400 400)">
+      <line x1="400" y1="330" x2="400" y2="75" stroke="#6b7b3f" stroke-width="30" stroke-dasharray="47 4"/>
+      <circle cx="400" cy="60" r="32" fill="#6b7b3f"/><circle cx="400" cy="60" r="20" fill="none" stroke="#f6f8f1" stroke-width="2"/>
+    </g>
+    <g transform="rotate(60 400 400)">
+      <line x1="400" y1="330" x2="400" y2="75" stroke="#7fa39a" stroke-width="30" stroke-dasharray="47 4"/>
+      <circle cx="400" cy="60" r="32" fill="#7fa39a"/><circle cx="400" cy="60" r="20" fill="none" stroke="#f6f8f1" stroke-width="2"/>
+    </g>
+    <g transform="rotate(120 400 400)">
+      <line x1="400" y1="330" x2="400" y2="75" stroke="#8fa6b8" stroke-width="30" stroke-dasharray="47 4"/>
+      <circle cx="400" cy="60" r="32" fill="#8fa6b8"/><circle cx="400" cy="60" r="20" fill="none" stroke="#f6f8f1" stroke-width="2"/>
+    </g>
+    <g transform="rotate(180 400 400)">
+      <line x1="400" y1="330" x2="400" y2="75" stroke="#c9b27c" stroke-width="30" stroke-dasharray="47 4"/>
+      <circle cx="400" cy="60" r="32" fill="#c9b27c"/><circle cx="400" cy="60" r="20" fill="none" stroke="#f6f8f1" stroke-width="2"/>
+    </g>
+    <g transform="rotate(240 400 400)">
+      <line x1="400" y1="330" x2="400" y2="75" stroke="#c49a9a" stroke-width="30" stroke-dasharray="47 4"/>
+      <circle cx="400" cy="60" r="32" fill="#c49a9a"/><circle cx="400" cy="60" r="20" fill="none" stroke="#f6f8f1" stroke-width="2"/>
+    </g>
+    <g transform="rotate(300 400 400)">
+      <line x1="400" y1="330" x2="400" y2="75" stroke="#9a8fb0" stroke-width="30" stroke-dasharray="47 4"/>
+      <circle cx="400" cy="60" r="32" fill="#9a8fb0"/><circle cx="400" cy="60" r="20" fill="none" stroke="#f6f8f1" stroke-width="2"/>
+    </g>
+  </g>
+
+  <!-- Centre : hexagone + camembert -->
+  <polygon points="400,325 465,362.5 465,437.5 400,475 335,437.5 335,362.5"
+           fill="#dfeadc" stroke="#6b7b3f" stroke-width="3"/>
+  <use href="#plein" transform="translate(400 400) scale(2)"/>
+  <circle cx="400" cy="400" r="44" fill="none" stroke="#4a5a2b" stroke-width="3"/>
+
+  <!-- Les pions -->
+  <use href="#pion" transform="translate(547 94)"/>
+  <use href="#pion" transform="translate(547 706)"/>
+  <use href="#pion" transform="translate(68 324)"/>
+  <use href="#pion" transform="translate(569 498)"/>
+  <use href="#pion" transform="translate(187 523)"/>
+</svg> 
+
+  <!-- Menu -->
+  <nav class="menu">
+    <span class="logo">Mind'up</span>
+    <div class="liens">
+      <a href="#projets">Nos projets</a>
+      <a href="#collaboration">Collaboration</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Bandeau d'accueil -->
+  <header class="accueil">
+    <p class="surtitre">Un projet étudiant</p>
+    <h1>Mind'up</h1>
+    <p class="accroche">Parlons de santé mentale, autrement : par le podcast et par le jeu.</p>
+    <a href="#projets" class="bouton">Découvrir nos projets</a>
+  </header>
+
+  <!-- Les deux projets -->
+  <section id="projets" class="section">
+    <h2>Nos deux projets</h2>
+    <div class="cartes">
+
+      <article class="carte">
+        <div class="icone">🎙️</div>
+        <h3>Le podcast</h3>
+        <p>Une série de podcasts créée par des étudiants, pour aborder la santé mentale avec des mots simples, des témoignages et des échanges sincères.</p>
+       <a href="podcast.html" class="bouton-contour">Écouter les épisodes</a>
+      </article>
+
+      <article class="carte">
+        <div class="icone">🎲</div>
+        <h3>Le jeu de société</h3>
+        <p>Une reprise du célèbre jeu de questions-réponses, entièrement consacrée à la santé mentale : on joue, on apprend et on en parle ensemble.</p>
+       <a href="jeu.html" class="bouton-contour">Découvrir le jeu</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Collaboration -->
+  <section id="collaboration" class="section collaboration">
+    <h2>Une collaboration complémentaire</h2>
+    <p>Le podcast et le jeu avancent main dans la main. Le podcast ouvre la discussion, le jeu la prolonge de façon ludique. Ensemble, ils rendent la santé mentale plus accessible à toutes et à tous.</p>
+  </section>
+
+   <!-- Contact et urgences -->
+  <section id="contact" class="section">
+    <h2>Contact et numéros d'urgence</h2>
+
+    <div class="avertissement">
+      <p><strong>Mind'up est un projet étudiant de sensibilisation.</strong> Il vous aide à mieux connaître la santé mentale, mais il ne remplace pas l'avis d'un professionnel de santé et ne permet pas de poser un diagnostic.</p>
+      <p>Si vous ou l'un de vos proches êtes en difficulté, vous n'êtes pas seul(e) : des numéros gratuits existent, en voici quelques-uns.</p>
+    </div>
+
+    <div class="cartes urgences">
+
+      <article class="carte urgence urgence-vitale">
+        <p class="tel"><a href="tel:3114">3114</a></p>
+        <h3>Prévention du suicide</h3>
+        <p>Numéro national, gratuit, joignable 24h/24 et 7j/7.</p>
+      </article>
+
+      <article class="carte urgence urgence-vitale">
+        <p class="tel"><a href="tel:15">15</a></p>
+        <h3>SAMU</h3>
+        <p>Urgence médicale ou psychologique grave.</p>
+      </article>
+
+      <article class="carte urgence">
+        <p class="tel"><a href="tel:112">112</a></p>
+        <h3>Numéro d'urgence européen</h3>
+        <p>Fonctionne partout en Europe, depuis un portable.</p>
+      </article>
+
+      <article class="carte urgence">
+        <p class="tel"><a href="tel:17">17</a></p>
+        <h3>Police / Gendarmerie</h3>
+        <p>En cas de menaces, d'agression ou de violences.</p>
+      </article>
+
+      <article class="carte urgence">
+        <p class="tel"><a href="tel:18">18</a></p>
+        <h3>Pompiers</h3>
+        <p>En cas de danger ou d'accident.</p>
+      </article>
+
+      <article class="carte urgence">
+        <p class="tel"><a href="tel:0800235236">0 800 235 236</a></p>
+        <h3>Fil Santé Jeunes</h3>
+        <p>Écoute anonyme et gratuite pour les 12-25 ans.</p>
+      </article>
+
+    </div>
+
+    <p class="contact-mail">Pour nous écrire : <a href="mailto:emilie.granier@outlook.fr">emilie.granier@outlook.fr</a></p>
+  </section>
+
+  <!-- Pied de page -->
+  <footer class="pied">
+    <p>Mind'up, un projet étudiant sur la santé mentale</p>
+  </footer>
+</body>
+</html>

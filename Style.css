@@ -1,0 +1,460 @@
+/* Palette : olive, sauge et blanc cassé, des tons calmes qui évoquent le médical */
+:root {
+  --olive: #6b7b3f;
+  --olive-fonce: #4a5a2b;
+  --sauge: #a9b88f;
+  --menthe: #dfeadc;
+  --fond: #f6f8f1;
+  --texte: #2f3a2a;
+}
+
+/* Réglages de base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fond : dégradé doux + fin motif de points */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--texte);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  border-top: 6px solid var(--olive);
+  background-image:
+    radial-gradient(circle, rgba(107, 123, 63, 0.14) 1.5px, transparent 1.5px),
+    linear-gradient(160deg, var(--fond), var(--menthe));
+  background-size: 28px 28px, 100% 100%;
+}
+
+/* Grande croix discrète en haut à droite (clin d'œil médical) */
+body::after {
+  content: "";
+  position: fixed;
+  top: -70px;
+  right: -70px;
+  width: 300px;
+  height: 300px;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(107, 123, 63, 0.10), rgba(107, 123, 63, 0.10)) center / 100% 80px no-repeat,
+    linear-gradient(rgba(107, 123, 63, 0.10), rgba(107, 123, 63, 0.10)) center / 80px 100% no-repeat;
+}
+
+/* Titre avec petit trait décoratif */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--olive-fonce);
+  margin-bottom: 1.5rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: var(--sauge);
+  border-radius: 2px;
+  margin: 0.8rem auto 0;
+}
+
+/* Paragraphes */
+p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 1rem;
+}
+
+/* Liens */
+a {
+  color: var(--olive);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid var(--sauge);
+}
+
+a:hover {
+  color: var(--olive-fonce);
+  border-bottom-color: var(--olive-fonce);
+}
+
+/* Boutons */
+button {
+  background: var(--olive);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  background: var(--olive-fonce);
+  transform: translateY(-2px);
+}
+/* ===== Mise en page du site Mind'up ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* On remet le corps de page en mode "site" (contenu du haut vers le bas) */
+body {
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--olive-fonce);
+}
+
+.liens a {
+  margin-left: 1.5rem;
+  border-bottom: none;
+}
+
+/* Bandeau d'accueil */
+.accueil {
+  padding: 5rem 1.5rem 4rem;
+}
+
+.surtitre {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  color: var(--olive);
+  margin: 0 auto 0.5rem;
+}
+
+.accroche {
+  margin: 0 auto 2rem;
+}
+
+/* Boutons-liens */
+.bouton,
+.bouton-contour {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.bouton {
+  background: var(--olive);
+  color: white;
+  border-bottom: none;
+}
+
+.bouton:hover {
+  background: var(--olive-fonce);
+  color: white;
+}
+
+.bouton-contour {
+  border: 2px solid var(--olive);
+  color: var(--olive);
+}
+
+.bouton-contour:hover {
+  background: var(--olive);
+  color: white;
+}
+
+/* Sections */
+.section {
+  padding: 3rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: var(--olive-fonce);
+  margin-bottom: 2rem;
+}
+
+/* Les deux cartes côte à côte */
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.carte {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  border-top: 5px solid var(--sauge);
+  box-shadow: 0 6px 20px rgba(74, 90, 43, 0.12);
+  transition: transform 0.2s;
+}
+
+.carte:hover {
+  transform: translateY(-6px);
+}
+
+.carte .icone {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.carte h3 {
+  color: var(--olive-fonce);
+  margin-bottom: 0.8rem;
+}
+
+.carte p {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Collaboration */
+.collaboration {
+  background: rgba(169, 184, 143, 0.25);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.collaboration p {
+  margin: 0 auto;
+}
+
+/* Pied de page */
+.pied {
+  margin-top: auto;
+  padding: 2rem 1rem;
+  background: var(--olive-fonce);
+  color: white;
+}
+
+.pied a {
+  color: white;
+  border-bottom-color: var(--sauge);
+}
+/* ===== Page du jeu ===== */
+
+/* Texte de la partie "Origine" */
+.texte {
+  max-width: 750px;
+}
+
+.texte p {
+  margin-bottom: 1.2rem;
+}
+
+/* Les étapes des règles */
+.etapes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.etape {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 6px 20px rgba(74, 90, 43, 0.12);
+}
+
+.numero {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: var(--olive);
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.etape h3 {
+  color: var(--olive-fonce);
+  margin-bottom: 0.6rem;
+}
+
+/* Le logo est maintenant un lien : on enlève le soulignement */
+a.logo {
+  border-bottom: none;
+}
+/* ===== Plateau de jeu en filigrane (page d'accueil) ===== */
+
+.plateau {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(95vmin, 850px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.18; /* plus petit = plus discret */
+}
+
+/* Couronne extérieure de petites cases */
+.plateau::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: repeating-conic-gradient(
+    #6b7b3f 0 5deg,
+    #a9b88f 5deg 10deg
+  );
+  -webkit-mask: radial-gradient(circle closest-side, transparent 0 80%, #000 80.3%);
+  mask: radial-gradient(circle closest-side, transparent 0 80%, #000 80.3%);
+}
+
+/* Rayons et cercles à l'intérieur */
+.plateau::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    /* cercle du centre */
+    radial-gradient(circle closest-side, transparent 0 13.4%, #6b7b3f 13.4% 14.2%, transparent 14.2%),
+    /* cercle du milieu */
+    radial-gradient(circle closest-side, transparent 0 47%, #6b7b3f 47% 47.7%, transparent 47.7%),
+    /* cercle extérieur */
+    radial-gradient(circle closest-side, transparent 0 79%, #6b7b3f 79% 80%, transparent 80%),
+    /* 6 rayons */
+    repeating-conic-gradient(#6b7b3f 0 0.8deg, transparent 0.8deg 60deg);
+  -webkit-mask: radial-gradient(circle closest-side, transparent 0 13%, #000 13.2% 80.2%, transparent 80.4%);
+  mask: radial-gradient(circle closest-side, transparent 0 13%, #000 13.2% 80.2%, transparent 80.4%);
+}
+/* ===== Page podcast : section "en attente" ===== */
+
+.attente {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 16px;
+  border-top: 5px solid var(--sauge);
+  box-shadow: 0 6px 20px rgba(74, 90, 43, 0.12);
+}
+
+.attente .icone {
+  font-size: 3rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.attente h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.attente p {
+  margin: 0 auto 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: rgba(169, 184, 143, 0.35);
+  color: var(--olive-fonce);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Bouton grisé, non cliquable */
+.bouton-inactif {
+  background: #c9d1bb;
+  color: #6b7560;
+  cursor: not-allowed;
+}
+/* ===== Chaînes recommandées ===== */
+
+.intro-chaines {
+  margin: -1rem auto 2rem;
+}
+
+.chaine {
+  position: relative;
+  padding-top: 2.8rem;
+}
+
+.etiquette {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 0.2rem 0.9rem;
+  background: rgba(169, 184, 143, 0.35);
+  color: var(--olive-fonce);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.note-chaines {
+  margin: 2rem auto 0;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+/* ===== Lignes topographiques en filigrane (pages jeu et podcast) ===== */
+
+.topo::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url("topo.svg") center / cover no-repeat;
+  opacity: 0.18; /* plus petit = plus discret */
+}
+/* Pages secondaires : on garde le dégradé, sans les petits points */
+.topo {
+  background-image: linear-gradient(160deg, var(--fond), var(--menthe));
+  background-size: 100% 100%;
+}
+/* ===== Couleurs des thèmes du jeu ===== */
+
+.theme h3 {
+  color: var(--couleur);
+}
+
+.theme {
+  border-top-color: var(--couleur);
+}
+
+.theme-violet { --couleur: #7c5ea8; }
+.theme-orange { --couleur: #d1741f; }
+.theme-rose   { --couleur: #c95a86; }
+.theme-vert   { --couleur: #4f7d3a; }
+.theme-jaune  { --couleur: #bf931a; }
+.theme-bleu   { --couleur: #3b7ab8; }
