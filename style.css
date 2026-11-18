@@ -1,189 +1,253 @@
-/* Palette : olive, sauge et blanc cassé, des tons calmes qui évoquent le médical */
+/* ==========================================================
+   MIND'UP : feuille de style, identité visuelle rouge & crème
+   ========================================================== */
+
+/* Polices (Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600;700&family=Yellowtail&family=Archivo+Black&family=DM+Sans:wght@400;500;700&display=swap");
+
+/* Palette et polices : change un code ici, il change partout */
 :root {
-  --olive: #6b7b3f;
-  --olive-fonce: #4a5a2b;
-  --sauge: #a9b88f;
-  --menthe: #dfeadc;
-  --fond: #f6f8f1;
-  --texte: #2f3a2a;
+  --rouge: #c51919;
+  --rouge-fonce: #8f1010;
+  --creme: #ebddd7;
+  --creme-clair: #f6eeeb;
+  --carte: #fffaf8;
+  --encre: #1c1717;
+  --texte: #3a2c2a;
+
+  --police-titre: "Bodoni Moda", "Didot", Georgia, serif;
+  --police-script: "Yellowtail", "Brush Script MT", cursive;
+  --police-logo: "Archivo Black", "Arial Black", sans-serif;
+  --police-texte: "DM Sans", "Segoe UI", Arial, sans-serif;
 }
 
-/* Réglages de base */
+/* ---------- Réglages de base ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Fond : dégradé doux + fin motif de points */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--police-texte);
   line-height: 1.7;
   color: var(--texte);
+  background-color: var(--creme);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  align-items: stretch;
   text-align: center;
-  border-top: 6px solid var(--olive);
-  background-image:
-    radial-gradient(circle, rgba(107, 123, 63, 0.14) 1.5px, transparent 1.5px),
-    linear-gradient(160deg, var(--fond), var(--menthe));
-  background-size: 28px 28px, 100% 100%;
+  border-top: 6px solid var(--rouge);
 }
 
-/* Grande croix discrète en haut à droite (clin d'œil médical) */
+/* Étoile rouge discrète en haut à droite (clin d'œil au post) */
 body::after {
   content: "";
   position: fixed;
-  top: -70px;
-  right: -70px;
-  width: 300px;
-  height: 300px;
+  top: -150px;
+  right: -150px;
+  width: 420px;
+  height: 420px;
   z-index: -1;
-  background:
-    linear-gradient(rgba(107, 123, 63, 0.10), rgba(107, 123, 63, 0.10)) center / 100% 80px no-repeat,
-    linear-gradient(rgba(107, 123, 63, 0.10), rgba(107, 123, 63, 0.10)) center / 80px 100% no-repeat;
+  pointer-events: none;
+  background: var(--rouge);
+  opacity: 0.1;
+  clip-path: polygon(50.0% 0.0%, 59.8% 13.3%, 75.0% 6.7%, 76.9% 23.1%, 93.3% 25.0%, 86.7% 40.2%, 100.0% 50.0%, 86.7% 59.8%, 93.3% 75.0%, 76.9% 76.9%, 75.0% 93.3%, 59.8% 86.7%, 50.0% 100.0%, 40.2% 86.7%, 25.0% 93.3%, 23.1% 76.9%, 6.7% 75.0%, 13.3% 59.8%, 0.0% 50.0%, 13.3% 40.2%, 6.7% 25.0%, 23.1% 23.1%, 25.0% 6.7%, 40.2% 13.3%);
 }
 
-/* Titre avec petit trait décoratif */
+/* ---------- Titres et textes ---------- */
 h1 {
-  font-size: 2.8rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--olive-fonce);
-  margin-bottom: 1.5rem;
+  font-family: var(--police-titre);
+  font-size: clamp(2.8rem, 9vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: var(--encre);
+  margin-bottom: 1rem;
 }
 
-h1::after {
-  content: "";
-  display: block;
-  width: 70px;
-  height: 3px;
-  background: var(--sauge);
-  border-radius: 2px;
-  margin: 0.8rem auto 0;
+h2 {
+  font-family: var(--police-titre);
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--encre);
 }
 
-/* Paragraphes */
+h3 {
+  font-family: var(--police-titre);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--rouge);
+}
+
 p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   max-width: 600px;
   margin-bottom: 1rem;
 }
 
-/* Liens */
+/* ---------- Liens et boutons ---------- */
 a {
-  color: var(--olive);
+  color: var(--rouge);
   text-decoration: none;
   font-weight: 600;
-  border-bottom: 2px solid var(--sauge);
+  border-bottom: 2px solid rgba(197, 25, 25, 0.35);
 }
 
 a:hover {
-  color: var(--olive-fonce);
-  border-bottom-color: var(--olive-fonce);
+  color: var(--rouge-fonce);
+  border-bottom-color: var(--rouge-fonce);
 }
 
-/* Boutons */
 button {
-  background: var(--olive);
-  color: white;
+  background: var(--rouge);
+  color: #fff;
   border: none;
   padding: 0.8rem 1.8rem;
-  border-radius: 8px;
+  border-radius: 999px;
+  font-family: var(--police-texte);
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.2s, background 0.2s;
 }
 
 button:hover {
-  background: var(--olive-fonce);
+  background: var(--rouge-fonce);
   transform: translateY(-2px);
 }
-/* ===== Mise en page du site Mind'up ===== */
 
-html {
-  scroll-behavior: smooth;
+.bouton,
+.bouton-contour {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--rouge);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
 }
 
-/* On remet le corps de page en mode "site" (contenu du haut vers le bas) */
-body {
-  justify-content: flex-start;
-  align-items: stretch;
-  padding: 0;
+.bouton {
+  background: var(--rouge);
+  color: #fff;
 }
 
-/* Menu */
+.bouton:hover {
+  background: var(--rouge-fonce);
+  border-color: var(--rouge-fonce);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.bouton-contour {
+  background: transparent;
+  color: var(--rouge);
+}
+
+.bouton-contour:hover {
+  background: var(--rouge);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Bouton grisé, non cliquable */
+.bouton-inactif {
+  background: #d9c9c3;
+  border-color: #d9c9c3;
+  color: #8a7a76;
+  cursor: not-allowed;
+}
+
+/* ---------- Menu ---------- */
 .menu {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
-  background: rgba(255, 255, 255, 0.7);
+  gap: 0.5rem 1.5rem;
+  padding: 0.7rem 2rem;
+  background: rgba(246, 238, 235, 0.88);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(197, 25, 25, 0.2);
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--olive-fonce);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--police-logo);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--rouge);
+  border-bottom: none;
+}
+
+.logo:hover {
+  border-bottom: none;
+}
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
 }
 
 .liens a {
   margin-left: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--encre);
   border-bottom: none;
 }
 
-/* Bandeau d'accueil */
+.liens a:hover {
+  color: var(--rouge);
+}
+
+/* ---------- Bandeau d'accueil ---------- */
 .accueil {
-  padding: 5rem 1.5rem 4rem;
+  padding: 4rem 1.5rem 3.5rem;
+}
+
+.logo-hero {
+  display: block;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(197, 25, 25, 0.2);
 }
 
 .surtitre {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.9rem;
-  color: var(--olive);
-  margin: 0 auto 0.5rem;
+  font-family: var(--police-script);
+  font-size: 2.2rem;
+  line-height: 1.2;
+  color: var(--rouge);
+  margin: 0 auto 0.4rem;
 }
 
 .accroche {
+  font-size: 1.25rem;
   margin: 0 auto 2rem;
 }
 
-/* Boutons-liens */
-.bouton,
-.bouton-contour {
-  display: inline-block;
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
-  font-weight: 600;
-}
-
-.bouton {
-  background: var(--olive);
-  color: white;
-  border-bottom: none;
-}
-
-.bouton:hover {
-  background: var(--olive-fonce);
-  color: white;
-}
-
-.bouton-contour {
-  border: 2px solid var(--olive);
-  color: var(--olive);
-}
-
-.bouton-contour:hover {
-  background: var(--olive);
-  color: white;
-}
-
-/* Sections */
+/* ---------- Sections ---------- */
 .section {
   padding: 3rem 1.5rem;
   max-width: 1000px;
@@ -191,12 +255,30 @@ body {
 }
 
 .section h2 {
-  font-size: 2rem;
-  color: var(--olive-fonce);
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
-/* Les deux cartes côte à côte */
+/* Petit trait rouge sous les titres de section */
+.section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--rouge);
+  border-radius: 2px;
+  margin: 0.8rem auto 0;
+}
+
+/* Texte de la partie "Origine" */
+.texte {
+  max-width: 750px;
+}
+
+.texte p {
+  margin-bottom: 1.2rem;
+}
+
+/* ---------- Cartes ---------- */
 .cartes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -204,11 +286,11 @@ body {
 }
 
 .carte {
-  background: white;
-  border-radius: 16px;
+  background: var(--carte);
+  border-radius: 18px;
   padding: 2rem;
-  border-top: 5px solid var(--sauge);
-  box-shadow: 0 6px 20px rgba(74, 90, 43, 0.12);
+  border-top: 5px solid var(--rouge);
+  box-shadow: 0 8px 24px rgba(90, 31, 31, 0.1);
   transition: transform 0.2s;
 }
 
@@ -222,7 +304,6 @@ body {
 }
 
 .carte h3 {
-  color: var(--olive-fonce);
   margin-bottom: 0.8rem;
 }
 
@@ -231,10 +312,11 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Collaboration */
+/* ---------- Collaboration ---------- */
 .collaboration {
-  background: rgba(169, 184, 143, 0.25);
-  border-radius: 16px;
+  background: rgba(197, 25, 25, 0.07);
+  border: 1px solid rgba(197, 25, 25, 0.18);
+  border-radius: 18px;
   margin-bottom: 2rem;
 }
 
@@ -242,30 +324,7 @@ body {
   margin: 0 auto;
 }
 
-/* Pied de page */
-.pied {
-  margin-top: auto;
-  padding: 2rem 1rem;
-  background: var(--olive-fonce);
-  color: white;
-}
-
-.pied a {
-  color: white;
-  border-bottom-color: var(--sauge);
-}
-/* ===== Page du jeu ===== */
-
-/* Texte de la partie "Origine" */
-.texte {
-  max-width: 750px;
-}
-
-.texte p {
-  margin-bottom: 1.2rem;
-}
-
-/* Les étapes des règles */
+/* ---------- Page du jeu : les règles ---------- */
 .etapes {
   display: grid;
   grid-template-columns: 1fr;
@@ -275,91 +334,64 @@ body {
 }
 
 .etape {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 6px 20px rgba(74, 90, 43, 0.12);
+  position: relative;
+  text-align: left;
+  background: var(--carte);
+  border-radius: 18px;
+  border-left: 5px solid var(--rouge);
+  padding: 1.8rem 1.5rem 1.8rem 5.5rem;
+  box-shadow: 0 8px 24px rgba(90, 31, 31, 0.1);
 }
 
 .numero {
-  display: inline-flex;
+  position: absolute;
+  left: 1.5rem;
+  top: 1.8rem;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
-  margin-bottom: 1rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--olive);
-  color: white;
+  background: var(--rouge);
+  color: #fff;
+  font-family: var(--police-logo);
   font-size: 1.3rem;
-  font-weight: 700;
 }
 
 .etape h3 {
-  color: var(--olive-fonce);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Le logo est maintenant un lien : on enlève le soulignement */
-a.logo {
-  border-bottom: none;
-}
-/* ===== Plateau de jeu en filigrane (page d'accueil) ===== */
-
-.plateau {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: min(95vmin, 850px);
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.18; /* plus petit = plus discret */
+.etape p {
+  margin-bottom: 0;
 }
 
-/* Couronne extérieure de petites cases */
-.plateau::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: repeating-conic-gradient(
-    #6b7b3f 0 5deg,
-    #a9b88f 5deg 10deg
-  );
-  -webkit-mask: radial-gradient(circle closest-side, transparent 0 80%, #000 80.3%);
-  mask: radial-gradient(circle closest-side, transparent 0 80%, #000 80.3%);
+/* ---------- Page du jeu : couleurs des thèmes ---------- */
+.theme h3 {
+  color: var(--couleur);
 }
 
-/* Rayons et cercles à l'intérieur */
-.plateau::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background:
-    /* cercle du centre */
-    radial-gradient(circle closest-side, transparent 0 13.4%, #6b7b3f 13.4% 14.2%, transparent 14.2%),
-    /* cercle du milieu */
-    radial-gradient(circle closest-side, transparent 0 47%, #6b7b3f 47% 47.7%, transparent 47.7%),
-    /* cercle extérieur */
-    radial-gradient(circle closest-side, transparent 0 79%, #6b7b3f 79% 80%, transparent 80%),
-    /* 6 rayons */
-    repeating-conic-gradient(#6b7b3f 0 0.8deg, transparent 0.8deg 60deg);
-  -webkit-mask: radial-gradient(circle closest-side, transparent 0 13%, #000 13.2% 80.2%, transparent 80.4%);
-  mask: radial-gradient(circle closest-side, transparent 0 13%, #000 13.2% 80.2%, transparent 80.4%);
+.theme {
+  border-top-color: var(--couleur);
 }
-/* ===== Page podcast : section "en attente" ===== */
 
+.theme-violet { --couleur: #7c5ea8; }
+.theme-orange { --couleur: #d1741f; }
+.theme-rose   { --couleur: #c95a86; }
+.theme-vert   { --couleur: #4f7d3a; }
+.theme-jaune  { --couleur: #bf931a; }
+.theme-bleu   { --couleur: #3b7ab8; }
+
+/* ---------- Page podcast ---------- */
 .attente {
   max-width: 650px;
   margin: 0 auto;
   padding: 3rem 2rem;
-  background: white;
-  border-radius: 16px;
-  border-top: 5px solid var(--sauge);
-  box-shadow: 0 6px 20px rgba(74, 90, 43, 0.12);
+  background: var(--carte);
+  border-radius: 18px;
+  border-top: 5px solid var(--rouge);
+  box-shadow: 0 8px 24px rgba(90, 31, 31, 0.1);
 }
 
 .attente .icone {
@@ -369,7 +401,7 @@ a.logo {
 
 .attente h2 {
   font-size: 1.6rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .attente p {
@@ -379,23 +411,16 @@ a.logo {
 .badge {
   display: inline-block;
   padding: 0.3rem 1rem;
-  background: rgba(169, 184, 143, 0.35);
-  color: var(--olive-fonce);
-  border-radius: 20px;
+  background: rgba(197, 25, 25, 0.1);
+  color: var(--rouge);
+  border-radius: 999px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
-/* Bouton grisé, non cliquable */
-.bouton-inactif {
-  background: #c9d1bb;
-  color: #6b7560;
-  cursor: not-allowed;
-}
-/* ===== Chaînes recommandées ===== */
-
+/* Chaînes recommandées */
 .intro-chaines {
   margin: -1rem auto 2rem;
 }
@@ -412,11 +437,11 @@ a.logo {
   transform: translateX(-50%);
   white-space: nowrap;
   padding: 0.2rem 0.9rem;
-  background: rgba(169, 184, 143, 0.35);
-  color: var(--olive-fonce);
-  border-radius: 20px;
+  background: rgba(197, 25, 25, 0.1);
+  color: var(--rouge);
+  border-radius: 999px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -426,8 +451,113 @@ a.logo {
   font-size: 0.95rem;
   font-style: italic;
 }
-/* ===== Lignes topographiques en filigrane (pages jeu et podcast) ===== */
 
+/* ---------- Contact et numéros d'urgence ---------- */
+.avertissement {
+  max-width: 750px;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  background: rgba(197, 25, 25, 0.07);
+  border-left: 5px solid var(--rouge);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.avertissement p {
+  font-size: 1.05rem;
+  max-width: none;
+  margin-bottom: 0.8rem;
+}
+
+.avertissement p:last-child {
+  margin-bottom: 0;
+}
+
+.urgences {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.urgence {
+  padding: 1.5rem;
+}
+
+.urgence p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.urgence .tel {
+  font-family: var(--police-titre);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.urgence .tel a {
+  color: var(--encre);
+  border-bottom: none;
+}
+
+.urgence .tel a:hover {
+  color: var(--rouge);
+}
+
+/* Les deux numéros prioritaires sont mis en valeur */
+.urgence-vitale {
+  background: var(--rouge);
+  border-top-color: var(--encre);
+  color: #fff;
+}
+
+.urgence-vitale h3,
+.urgence-vitale .tel a,
+.urgence-vitale .tel a:hover {
+  color: #fff;
+}
+
+.contact-mail {
+  margin: 2rem auto 0;
+}
+
+/* ---------- Pied de page ---------- */
+.pied {
+  margin-top: auto;
+  padding: 2rem 1rem;
+  background: var(--encre);
+  color: var(--creme);
+}
+
+.pied p {
+  max-width: none;
+  margin-bottom: 0.4rem;
+}
+
+.pied a {
+  color: var(--creme);
+  border-bottom-color: var(--rouge);
+}
+
+.pied a:hover {
+  color: #fff;
+}
+
+/* ---------- Décors en filigrane ---------- */
+
+/* Page d'accueil : plateau de jeu (<div class="plateau"> dans index.html) */
+.plateau {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(100vmin, 900px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.14; /* plus petit = plus discret */
+  background: url("plateau.svg") center / contain no-repeat;
+}
+
+/* Pages jeu et podcast : lignes topographiques (<body class="topo">) */
 .topo::before {
   content: "";
   position: fixed;
@@ -435,26 +565,13 @@ a.logo {
   z-index: -1;
   pointer-events: none;
   background: url("topo.svg") center / cover no-repeat;
-  opacity: 0.18; /* plus petit = plus discret */
-}
-/* Pages secondaires : on garde le dégradé, sans les petits points */
-.topo {
-  background-image: linear-gradient(160deg, var(--fond), var(--menthe));
-  background-size: 100% 100%;
-}
-/* ===== Couleurs des thèmes du jeu ===== */
-
-.theme h3 {
-  color: var(--couleur);
+  opacity: 0.13; /* plus petit = plus discret */
 }
 
-.theme {
-  border-top-color: var(--couleur);
+/* ---------- Petit utilitaire : texte souligné ---------- */
+.souligne {
+  text-decoration: underline;
+  text-decoration-color: var(--rouge);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
 }
-
-.theme-violet { --couleur: #7c5ea8; }
-.theme-orange { --couleur: #d1741f; }
-.theme-rose   { --couleur: #c95a86; }
-.theme-vert   { --couleur: #4f7d3a; }
-.theme-jaune  { --couleur: #bf931a; }
-.theme-bleu   { --couleur: #3b7ab8; }
